@@ -17,6 +17,7 @@ function UserEdit() {
         },
         onSubmit: async(values) => {
            try {
+            delete values._id;
             await axios.put(`https://userscurd-node-app.herokuapp.com/user/${params.id}`,values)
             navigate("/")
             
