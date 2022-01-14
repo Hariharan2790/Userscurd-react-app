@@ -6,7 +6,7 @@ import { useNavigate,useParams } from 'react-router-dom';
 function UserEdit() {
     let params = useParams()
     useEffect(async() => {
-      let userData =  await axios.get(`http://localhost:3000/user/${params.id}`)
+      let userData =  await axios.get(`https://userscurd-node-app.herokuapp.com/user/${params.id}`)
       formik.setValues(userData.data)
     }, [])
     const navigate = useNavigate();
@@ -17,7 +17,7 @@ function UserEdit() {
         },
         onSubmit: async(values) => {
            try {
-            await axios.put(`http://localhost:3000/user/${params.id}`,values)
+            await axios.put(`https://userscurd-node-app.herokuapp.com/user/${params.id}`,values)
             navigate("/")
             
            } catch (error) {
